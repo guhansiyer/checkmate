@@ -196,88 +196,89 @@ def takeScreenshot(num):
 def startPositions():
 	# setting up the original positions
 
+	squares = [
 	# 1st Row
-	square1 = ["a1", "R", "White"]
-	square2 = ["b1", "N", "White"]
-	square3 = ["c1", "B", "White"]
-	square4 = ["d1", "Q", "White"]
-	square5 = ["e1", "K", "White"]
-	square6 = ["f1", "B", "White"]
-	square7 = ["g1", "N", "White"]
-	square8 = ["h1", "R", "White"]
+	["a1", "R", "White"],
+	["b1", "N", "White"],
+	["c1", "B", "White"],
+	["d1", "Q", "White"],
+	["e1", "K", "White"],
+	["f1", "B", "White"],
+	["g1", "N", "White"],
+	["h1", "R", "White"],
 
 	# 2nd Row
-	square9  = ["a2", "", "White"]
-	square10 = ["b2", "", "White"]
-	square11 = ["c2", "", "White"]
-	square12 = ["d2", "", "White"]
-	square13 = ["e2", "", "White"]
-	square14 = ["f2", "", "White"]
-	square15 = ["g2", "", "White"]
-	square16 = ["h2", "", "White"]
+	["a2", "", "White"],
+	["b2", "", "White"],
+	["c2", "", "White"],
+	["d2", "", "White"],
+	["e2", "", "White"],
+	["f2", "", "White"],
+	["g2", "", "White"],
+	["h2", "", "White"],
 
 	# 3rd Row
-	square17 = ["a3", "None", "Blank"]
-	square18 = ["b3", "None", "Blank"]
-	square19 = ["c3", "None", "Blank"]
-	square20 = ["d3", "None", "Blank"]
-	square21 = ["e3", "None", "Blank"]
-	square22 = ["f3", "None", "Blank"]
-	square23 = ["g3", "None", "Blank"]
-	square24 = ["h3", "None", "Blank"]
+	["a3", "None", "Blank"],
+	["b3", "None", "Blank"],
+	["c3", "None", "Blank"],
+	["d3", "None", "Blank"],
+	["e3", "None", "Blank"],
+	["f3", "None", "Blank"],
+	["g3", "None", "Blank"],
+	["h3", "None", "Blank"],
 
 	# 4th Row
-	square25 = ["a4", "None", "Blank"]
-	square26 = ["b4", "None", "Blank"]
-	square27 = ["c4", "None", "Blank"]
-	square28 = ["d4", "None", "Blank"]
-	square29 = ["e4", "None", "Blank"]
-	square30 = ["f4", "None", "Blank"]
-	square31 = ["g4", "None", "Blank"]
-	square32 = ["h4", "None", "Blank"]
+	["a4", "None", "Blank"],
+	["b4", "None", "Blank"],
+	["c4", "None", "Blank"],
+	["d4", "None", "Blank"],
+	["e4", "None", "Blank"],
+	["f4", "None", "Blank"],
+	["g4", "None", "Blank"],
+	["h4", "None", "Blank"],
 
 
 	# 5th Row
-	square33 = ["a5", "None", "Blank"]
-	square34 = ["b5", "None", "Blank"]
-	square35 = ["c5", "None", "Blank"]
-	square36 = ["d5", "None", "Blank"]
-	square37 = ["e5", "None", "Blank"]
-	square38 = ["f5", "None", "Blank"]
-	square39 = ["g5", "None", "Blank"]
-	square40 = ["h5", "None", "Blank"]
+	["a5", "None", "Blank"],
+	["b5", "None", "Blank"],
+	["c5", "None", "Blank"],
+	["d5", "None", "Blank"],
+	["e5", "None", "Blank"],
+	["f5", "None", "Blank"],
+	["g5", "None", "Blank"],
+	["h5", "None", "Blank"],
 
 	# 6th Row
-	square41 = ["a6", "None", "Blank"]
-	square42 = ["b6", "None", "Blank"]
-	square43 = ["c6", "None", "Blank"]
-	square44 = ["d6", "None", "Blank"]
-	square45 = ["e6", "None", "Blank"]
-	square46 = ["f6", "None", "Blank"]
-	square47 = ["g6", "None", "Blank"]
-	square48 = ["h6", "None", "Blank"] 
+	["a6", "None", "Blank"],
+	["b6", "None", "Blank"],
+	["c6", "None", "Blank"],
+	["d6", "None", "Blank"],
+	["e6", "None", "Blank"],
+	["f6", "None", "Blank"],
+	["g6", "None", "Blank"],
+	["h6", "None", "Blank"],
 
 	# 7th Row
-	square49 = ["a7", "", "Black"]
-	square50 = ["b7", "", "Black"]
-	square51 = ["c7", "", "Black"]
-	square52 = ["d7", "", "Black"]
-	square53 = ["e7", "", "Black"]
-	square54 = ["f7", "", "Black"]
-	square55 = ["g7", "", "Black"]
-	square56 = ["h7", "", "Black"]
+	["a7", "", "Black"],
+	["b7", "", "Black"],
+	["c7", "", "Black"],
+	["d7", "", "Black"],
+	["e7", "", "Black"],
+	["f7", "", "Black"],
+	["g7", "", "Black"],
+	["h7", "", "Black"],
 
 	# 8th Row
-	square57 = ["a8", "R", "Black"]
-	square58 = ["b8", "N", "Black"]
-	square59 = ["c8", "B", "Black"]
-	square60 = ["d8", "Q", "Black"]
-	square61 = ["e8", "K", "Black"]
-	square62 = ["f8", "B", "Black"]
-	square63 = ["g8", "N", "Black"]
-	square64 = ["h8", "R", "Black"]
+	["a8", "R", "Black"],
+	["b8", "N", "Black"],
+	["c8", "B", "Black"],
+	["d8", "Q", "Black"],
+	["e8", "K", "Black"],
+	["f8", "B", "Black"],
+	["g8", "N", "Black"],
+	["h8", "R", "Black"],
 
-	squares = [square1, square2, square3, square4, square5, square6, square7, square8, square9, square10, square11, square12, square13, square14, square15, square16, square17, square18, square19, square20, square21, square22, square23, square24, square25, square26, square27, square28, square29, square30, square31, square32, square33, square34, square35, square36, square37, square38, square39, square40, square41, square42, square43, square44, square45, square46, square47, square48, square49, square50, square51, square52, square53, square54, square55, square56, square57, square58, square59, square60, square61, square62, square63, square64]
+	]
 
 	return squares
 
