@@ -308,4 +308,4 @@ with open(f"{path}\\Chess Moves.txt", "w") as fileChess:
 
 	for i in range(len(moves)):
 
-		fileChess.write(str(moves[i])+"\n")
+		fileChess.write('\n'.join(['{}.{}'.format(i+1, moves[i])]))
