@@ -304,8 +304,13 @@ for x in range(7):
 	except:
 		pass
 
+for i in range(len(moves)):
+
+	print('\n'.join(['{}.{}'.format(i+1, moves[i])]))
+
 with open(f"{path}\\Chess Moves.txt", "w") as fileChess:
 
 	for i in range(len(moves)):
 
-		fileChess.write('\n'.join(['{}.{}'.format(i+1, moves[i])]))
+		fileChess.write(f"{i+1}. {moves[i]} ")
+
