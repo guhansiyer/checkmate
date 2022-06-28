@@ -308,6 +308,7 @@ for x in range(7):
 for i in range(len(moves)):
 
 	print('\n'.join(['{}.{}'.format(i+1, moves[i])]))
+	sleep(1)
 
 with open(f"{path}\\Chess Moves.pgn", "w") as fileChess:
 
