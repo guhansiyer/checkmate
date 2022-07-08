@@ -12,8 +12,8 @@ from time import sleep
 # print(f"Numpy {np.__version__}")
 
 
-#path = "C:\\Users\\Antonio\\Desktop\\Python Programs\\Chess"
-path = "C:\\Users\\guhan\Desktop\\chess"
+path = "C:\\Users\\Antonio\\Desktop\\Python Programs\\Chess"
+# path = "C:\\Users\\guhan\Desktop\\chess"
 
 
 def differenceFinder(oldSquares, newSquares):
@@ -21,65 +21,130 @@ def differenceFinder(oldSquares, newSquares):
 	missingPiece = []
 	unknownPiece = None
 
-	for i in range(64):
-		
+	# checking for castling king side white
 
-		squareOld = oldSquares[i]
-		squareNew = newSquares[i]
+	if oldSquares[4] == ["e1", "K", "White"] and oldSquares[5] == ["f1", "None", "Blank"] and oldSquares[6] == ["g1", "None", "Blank"] and oldSquares[7] == ["h1", "R", "White"] and newSquares[5] == ["f1", "None", "White"] and newSquares[6] == ["g1", "None", "White"]: 
 
+		newSquares = oldSquares
+		newSquares[4] = ["e1", "None", "Blank"]
+		newSquares[5] = ["f1", "R", "White"]
+		newSquares[6] = ["g1", "K", "White"]
+		newSquares[7] = ["h1", "None", "Blank"]
 
-		if squareOld[2] == squareNew[2]:
+		move = "O-O"
 
-			squareNew[1] = squareOld[1]
+		values = [newSquares, move]
 
-		else:
+	# checking for castling king side black
+	elif oldSquares[60] == ["e8", "K", "Black"] and oldSquares[61] == ["f8", "None", "Blank"] and oldSquares[62] == ["g8", "None", "Blank"] and oldSquares[63] == ["h8", "R", "Black"] and newSquares[61] == ["f8", "None", "Black"] and newSquares[62] == ["g8", "None", "Black"]:
+	
+		newSquares = oldSquares
+		newSquares[60] = ["e8", "None", "Blank"]
+		newSquares[61] = ["f8", "R", "Black"]
+		newSquares[62] = ["g8", "K", "Black"]
+		newSquares[63] = ["h8", "None", "Blank"]
 
-			if squareNew[2] == "Blank":
-				
-				squareNew[1] = "None"
-				missingPiece.append(squareOld[1])
+		move = "O-O"
 
-			elif  (squareOld[2] == "White" and squareNew[2] == "Black") or (squareOld[2] == "Black" and squareNew[2] == "White"):
+		values = [newSquares, move]
 
-				missingPiece.append(squareOld[1])
-				unknownPiece = i
+	# checking for caslting queen side white
+	elif oldSquares[0] == ["a1", "R", "White"] and oldSquares[1] == ["b1", "None", "Blank"] and oldSquares[2] == ["c1", "None", "Blank"] and oldSquares[3] == ["d1", "None", "Blank"] and oldSquares[4] == ["e1", "K", "White"] and newSquares[2] == ["c1", "None", "White"] and newSquares[3] == ["d1", "None", "White"]:
 
-			else:
+		newSquares = oldSquares
+		newSquares[0] = ["a1", "None", "Blank"]
+		newSquares[1] = ["b1", "None", "Blank"]
+		newSquares[2] = ["c1", "K", "White"]
+		newSquares[3] = ["d1", "R", "White"]
+		newSquares[4] = ["e1", "None", "Blank"]
 
-				unknownPiece = i
+		move = "O-O-O"
 
-	if unknownPiece != None:
+		values = [newSquares, move]
 
-		changedSquare = newSquares[unknownPiece]
+	elif oldSquares[56] == ["a8", "R", "Black"] and oldSquares[57] == ["b8", "None", "Blank"] and oldSquares[58] == ["c8", "None", "Blank"] and oldSquares[59] == ["d8", "None", "Blank"] and oldSquares[60] == ["e8", "K", "Black"] and newSquares[58] == ["c8", "None", "Black"] and newSquares[59] == ["d8", "None", "Black"]:
 
-		if len(missingPiece) == 1:
+		newSquares = oldSquares
+		newSquares[56] = ["a8", "None", "Blank"]
+		newSquares[57] = ["b8", "None", "Blank"]
+		newSquares[58] = ["c8", "K", "Black"]
+		newSquares[59] = ["d8", "R", "Black"]
+		newSquares[60] = ["e8", "None", "Blank"]
 
-			# pice movement message return
-			move = f"{missingPiece[0]}{changedSquare[0]}"
-			changedSquare[1] = missingPiece[0]
-
-		else:
-
-			missingPiece1 = missingPiece[0]
-			missingPiece2 = missingPiece[1]
-
-			if changedSquare[2] == missingPiece1:
-				# piece killed another piece return
-				changedSquare[1] = missingPiece1
-				move = f"{missingPiece1} to {changedSquare[0]} and {missingPiece2} was taken out of the game"
-
-			else:
-				# piece killed another piece return
-				changedSquare[1] = missingPiece2
-				move = f"{missingPiece2} to {changedSquare[0]} and {missingPiece1} was taken out of the game"
-
-
-		newSquares[unknownPiece] = changedSquare
+		move = "O-O-O"
 
 		values = [newSquares, move]
 
 	else:
-		values = [newSquares]
+
+		for i in range(64):
+			
+
+			squareOld = oldSquares[i]
+			squareNew = newSquares[i]
+
+
+			# checks if there was a change
+			if squareOld[2] == squareNew[2]:
+				# no change
+				squareNew[1] = squareOld[1]
+			# change
+			else:
+
+				# a piece should be there but isn't
+				if squareNew[2] == "Blank":
+					
+					squareNew[1] = "None"
+					missingPiece.append(squareOld)
+
+				# was one colour but is a new one now
+				elif  (squareOld[2] == "White" and squareNew[2] == "Black") or (squareOld[2] == "Black" and squareNew[2] == "White"):
+
+					missingPiece.append(squareOld)
+					unknownPiece = i
+				# was blank but now has a piece
+				else:
+
+					unknownPiece = i
+
+		if unknownPiece != None:
+
+			changedSquare = newSquares[unknownPiece]
+
+			if len(missingPiece) == 1:
+
+				# piece movement message return
+				move = f"{missingPiece[0][1]}{changedSquare[0]}"
+				changedSquare[1] = missingPiece[0][1]
+
+			else:
+
+				missingPiece1 = missingPiece[0]
+				missingPiece2 = missingPiece[1]
+
+				if changedSquare[2] == missingPiece1[2]:
+					# piece killed another piece return
+					changedSquare[1] = missingPiece1[1]
+					if missingPiece1[1] == "":
+						move = f"{missingPiece1[0][0]}x{changedSquare[0]}"
+					else:
+						move = f"{missingPiece1[1]}x{changedSquare[0]}"
+
+				else:
+					# piece killed another piece return
+					changedSquare[1] = missingPiece2[1]
+					if missingPiece2[1] == "":
+						move = f"{missingPiece2[0][0]}x{changedSquare[0]}"
+					else:
+						move = f"{missingPiece2[1]}x{changedSquare[0]}"
+
+
+			newSquares[unknownPiece] = changedSquare
+
+			values = [newSquares, move]
+
+		else:
+			values = [newSquares]
 
 	return values
 
@@ -289,7 +354,7 @@ squaresOld = startPositions()
 
 moves = []
 
-for x in range(7):
+for x in range(37):
 
 	# takeScreenshot(x)
 	img = pickImage(x+1)
@@ -308,7 +373,6 @@ for x in range(7):
 for i in range(len(moves)):
 
 	print(f"{i+1}. {moves[i]} ")
-	sleep(1)
 
 with open(f"{path}\\Chess Moves.pgn", "w") as fileChess:
 
@@ -321,5 +385,3 @@ with open(f"{path}\\Chess Moves.txt", "w") as fileChess:
 	for i in range(len(moves)):
 
 		fileChess.write(f"{i+1}. {moves[i]} ")
-
-
