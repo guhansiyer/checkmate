@@ -3,6 +3,8 @@ import numpy as np
 from PIL import Image
 import pyautogui
 from time import sleep
+import requests
+import json
 
 
 # print("Hello Python")
@@ -12,8 +14,8 @@ from time import sleep
 # print(f"Numpy {np.__version__}")
 
 
-path = "C:\\Users\\Antonio\\Desktop\\Python Programs\\Chess"
-# path = "C:\\Users\\guhan\Desktop\\chess"
+# path = "C:\\Users\\Antonio\\Desktop\\Python Programs\\Chess"
+path = "C:\\Users\\guhan\Desktop\\chess"
 
 
 def differenceFinder(oldSquares, newSquares):
@@ -48,7 +50,7 @@ def differenceFinder(oldSquares, newSquares):
 
 		values = [newSquares, move]
 
-	# checking for caslting queen side white
+	# checking for castling queen side white
 	elif oldSquares[0] == ["a1", "R", "White"] and oldSquares[1] == ["b1", "None", "Blank"] and oldSquares[2] == ["c1", "None", "Blank"] and oldSquares[3] == ["d1", "None", "Blank"] and oldSquares[4] == ["e1", "K", "White"] and newSquares[2] == ["c1", "None", "White"] and newSquares[3] == ["d1", "None", "White"]:
 
 		newSquares = oldSquares
@@ -62,6 +64,7 @@ def differenceFinder(oldSquares, newSquares):
 
 		values = [newSquares, move]
 
+	#checking for castling queen side black
 	elif oldSquares[56] == ["a8", "R", "Black"] and oldSquares[57] == ["b8", "None", "Blank"] and oldSquares[58] == ["c8", "None", "Blank"] and oldSquares[59] == ["d8", "None", "Blank"] and oldSquares[60] == ["e8", "K", "Black"] and newSquares[58] == ["c8", "None", "Black"] and newSquares[59] == ["d8", "None", "Black"]:
 
 		newSquares = oldSquares
@@ -370,9 +373,9 @@ for x in range(37):
 	except:
 		pass
 
-for i in range(len(moves)):
+# for i in range(len(moves)):
 
-	print(f"{i+1}. {moves[i]} ")
+# 	print(f"{i+1}. {moves[i]} ")
 
 with open(f"{path}\\Chess Moves.pgn", "w") as fileChess:
 
@@ -385,3 +388,14 @@ with open(f"{path}\\Chess Moves.txt", "w") as fileChess:
 	for i in range(len(moves)):
 
 		fileChess.write(f"{i+1}. {moves[i]} ")
+
+file = open(f"{path}\\Chess Moves.pgn", "r")
+
+read = file.read()
+
+file.close()
+
+response = requests.post("https://lichess.org/api/import",  
+    data = {"pgn": read}
+)
+print(response.json()["url"])
