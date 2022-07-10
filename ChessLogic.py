@@ -15,7 +15,9 @@ import json
 
 
 # path = "C:\\Users\\Antonio\\Desktop\\Python Programs\\Chess"
-path = "C:\\Users\\guhan\Desktop\\chess"
+path = "C:\\Users\\guhan\\Desktop\\chess"
+
+# path = input("Enter your system path.")
 
 
 def differenceFinder(oldSquares, newSquares):
@@ -24,7 +26,6 @@ def differenceFinder(oldSquares, newSquares):
 	unknownPiece = None
 
 	# checking for castling king side white
-
 	if oldSquares[4] == ["e1", "K", "White"] and oldSquares[5] == ["f1", "None", "Blank"] and oldSquares[6] == ["g1", "None", "Blank"] and oldSquares[7] == ["h1", "R", "White"] and newSquares[5] == ["f1", "None", "White"] and newSquares[6] == ["g1", "None", "White"]: 
 
 		newSquares = oldSquares
@@ -398,4 +399,5 @@ file.close()
 response = requests.post("https://lichess.org/api/import",  
     data = {"pgn": read}
 )
+
 print(response.json()["url"])
