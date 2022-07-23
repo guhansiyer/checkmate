@@ -1,3 +1,4 @@
+import requests
 import json
 
 file = open(f"{path}\\Chess Moves.pgn", "r")
