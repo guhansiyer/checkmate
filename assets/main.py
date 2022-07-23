@@ -4,7 +4,7 @@ from PIL import Image
 import pyautogui
 from time import sleep
 import config
-import post
+import requests
 
 
 # print("Hello Python")
@@ -387,4 +387,17 @@ with open(f"{config.path}\\Chess Moves.txt", "w") as fileChess:
 
 		fileChess.write(f"{i+1}. {moves[i]} ")
 
-print(post.url)
+file = open(f"{config.path}\\Chess Moves.pgn", "r")
+
+read = file.read()
+
+file.close()
+
+response = requests.post(
+    "https://lichess.org/api/import",  
+    data = {"pgn": read}
+)
+
+url = response.json()["url"]
+
+print(url)
