@@ -3,8 +3,7 @@ import numpy as np
 from PIL import Image
 import pyautogui
 from time import sleep
-import requests
-import json
+import config
 
 
 # print("Hello Python")
@@ -13,9 +12,7 @@ import json
 
 # print(f"Numpy {np.__version__}")
 
-global path
-# path = "C:\\Users\\Antonio\\Desktop\\Python Programs\\Chess"
-path = "C:\\Users\\guhan\\Desktop\\chess"
+
 
 
 
@@ -188,7 +185,7 @@ def pickImage(num):
 	
 	imageName = "Move" + str(num) + ".png"
 
-	img  = Image.open(f"{path}\\ChessPNGs\\{imageName}")
+	img  = Image.open(f"{config.path}\\ChessPNGs\\{imageName}")
 	
 	return img
 
@@ -259,7 +256,7 @@ def takeScreenshot(num):
 	imageName = "Move" + str(num) + ".png"
 
 	myScreenshot = pyautogui.screenshot()
-	myScreenshot.save(f"{path}\\ChessPNGs\\{imageName}")
+	myScreenshot.save(f"{config.path}\\ChessPNGs\\{imageName}")
 
 def startPositions():
 	# setting up the original positions
@@ -377,13 +374,13 @@ for x in range(37):
 
 # 	print(f"{i+1}. {moves[i]} ")
 
-with open(f"{path}\\Chess Moves.pgn", "w") as fileChess:
+with open(f"{config.path}\\Chess Moves.pgn", "w") as fileChess:
 
 	for i in range(len(moves)):
 
 		fileChess.write(f"{i+1}. {moves[i]} ")
 
-with open(f"{path}\\Chess Moves.txt", "w") as fileChess:
+with open(f"{config.path}\\Chess Moves.txt", "w") as fileChess:
 
 	for i in range(len(moves)):
 
