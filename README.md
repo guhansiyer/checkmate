@@ -14,6 +14,6 @@ Lichess is one of the most popular internet chess servers in use. It contains ma
 
 Lichess also preforms computer analysis using the Stockfish chess engine, and allows users to import their own games using the PGN format. Checkmate uses these features to allow users to receive computer analysis of their real life chess games. 
 
-
-
 Once all moves of a game have been compiled into a .pgn file, it can be uploaded to Lichess for user analysis
+
+# Set up and use
