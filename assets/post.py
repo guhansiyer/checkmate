@@ -1,7 +1,7 @@
 import requests
-import json
+import config
 
-file = open(f"{path}\\Chess Moves.pgn", "r")
+file = open(f"{config.path}\\Chess Moves.pgn", "r")
 
 read = file.read()
 
@@ -12,4 +12,6 @@ response = requests.post(
     data = {"pgn": read}
 )
 
-print(response.json()["url"])
+url = response.json()["url"]
+
+print(url)

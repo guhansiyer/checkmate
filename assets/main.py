@@ -4,6 +4,7 @@ from PIL import Image
 import pyautogui
 from time import sleep
 import config
+import post
 
 
 # print("Hello Python")
@@ -386,3 +387,4 @@ with open(f"{config.path}\\Chess Moves.txt", "w") as fileChess:
 
 		fileChess.write(f"{i+1}. {moves[i]} ")
 
+print(post.url)
