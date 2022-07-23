@@ -13,11 +13,10 @@ import json
 
 # print(f"Numpy {np.__version__}")
 
-
+global path
 # path = "C:\\Users\\Antonio\\Desktop\\Python Programs\\Chess"
 path = "C:\\Users\\guhan\\Desktop\\chess"
 
-# path = input("Enter your system path.")
 
 
 def differenceFinder(oldSquares, newSquares):

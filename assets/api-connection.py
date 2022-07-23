@@ -7,7 +7,8 @@ read = file.read()
 
 file.close()
 
-response = requests.post("https://lichess.org/api/import",  
+response = requests.post(
+    "https://lichess.org/api/import",  
     data = {"pgn": read}
 )
 
