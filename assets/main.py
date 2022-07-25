@@ -398,6 +398,6 @@ response = requests.post(
     data = {"pgn": read}
 )
 
-url = response.json()["url"]
+print(response.json()["url"])
 
-print(url)
+
