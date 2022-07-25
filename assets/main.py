@@ -389,13 +389,13 @@ with open(f"{config.path}\\Chess Moves.txt", "w") as fileChess:
 
 moves = open(f"{config.path}\\Chess Moves.pgn", "r")
 
-read = moves.read()
+data = moves.read()
 
 moves.close()
 
 response = requests.post(
     "https://lichess.org/api/import",  
-    data = {"pgn": read}
+    data = {"pgn": data}
 )
 
 print(response.json()["url"])
