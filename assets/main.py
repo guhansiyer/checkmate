@@ -387,11 +387,11 @@ with open(f"{config.path}\\Chess Moves.txt", "w") as fileChess:
 
 		fileChess.write(f"{i+1}. {moves[i]} ")
 
-file = open(f"{config.path}\\Chess Moves.pgn", "r")
+moves = open(f"{config.path}\\Chess Moves.pgn", "r")
 
-read = file.read()
+read = moves.read()
 
-file.close()
+moves.close()
 
 response = requests.post(
     "https://lichess.org/api/import",  
