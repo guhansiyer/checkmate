@@ -18,5 +18,5 @@ Once all moves of a game have been compiled into a .pgn file, it can be uploaded
 
 # Set up and use
 
-Fart
+Checkmate requires very minimal instructions in order to run. 
 
