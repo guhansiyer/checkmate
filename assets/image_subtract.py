@@ -1,8 +1,7 @@
-import numpy as np
 from PIL import Image
-import pyautogui
 
-path = "C:\\Users\\Antonio\\Desktop\\Python Programs\\Chess"
+
+path = "C:\\Users\\guhan\\Desktop\\chess"
 
 def pickImage(num, folder):
 	
@@ -14,9 +13,9 @@ def pickImage(num, folder):
 
 def SubtractImage(num):
 
-	img1 = pickImage(num,  "ChessPNGs2 (Gray Scale)")
-	img2 = pickImage(num+1,"ChessPNGs2 (Gray Scale)")
-	img = pickImage(num+1, "ChessPNGs2")
+	img1 = pickImage(num,  "autoscreenshot (grayscaled)")
+	img2 = pickImage(num+1,"autoscreenshot (grayscaled)")
+	img  = pickImage(num+1, "autoscreenshot (grayscaled)")
 
 	pix = img.load()
 	pix1 = img1.load()
@@ -28,22 +27,22 @@ def SubtractImage(num):
 
 		for y in range(height):
 
-			try:
-				RGBValue1 = pix1[x, y]
-				RGBValue2 = pix2[x, y]
+		
+			RGBValue1 = pix1[x, y]
+			RGBValue2 = pix2[x, y]
 
-				newRGBValue = abs(RGBValue1[0] - RGBValue2[0])
+			newRGBValue = int(abs(RGBValue1 - RGBValue2))
 
-				pix[x, y] = (newRGBValue,newRGBValue,newRGBValue)
-			except:
-				pass
+			pix[x, y] = newRGBValue
+			
+			
 
 	imageName = "Move" + str(num+1) + ".png"
 
-	img.save(f"{path}\\ChessPNGs2\\{imageName}")
+	img.save(f"{path}\\autoscreenshot\\{imageName}")
 
 	print("Image Done")
 
-for i in range(37):
+for i in range(36):
 
 	SubtractImage(i)
