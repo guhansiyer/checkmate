@@ -1,9 +1,8 @@
 from time import sleep
 from PIL import ImageGrab
 
-
 i = 0
-sleep(10)
+sleep(3)
 print('Start')
 sleep(3)
 for j in range(36):
