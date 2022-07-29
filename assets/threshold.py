@@ -1,14 +1,21 @@
 import cv2 as cv
 import numpy as np 
+import config
 
-path = "/Users/guhaniyer/Documents"
-
-
-img = cv.imread("/Users/guhaniyer/Documents/Move0.png")
+img = cv.imread(f"{config.path}\\Move0.png")
 rsz_img = cv.resize(img, None, fx=0.20, fy=0.20)
-gray = cv.cvtColor(rsz_img, cv.COLOR_BGR2GRAY)
+#gray = cv.cvtColor(rsz_img, cv.COLOR_BGR2GRAY)
+mask = np.zeros(rsz_img.shape[:2], dtype = "uint8")
+mask = cv.rectangle(mask, (150,150), (450, 450), 255, -1)
 
+result = cv.bitwise_and(rsz_img, rsz_img, mask = mask)
 #Standard Thresholding
+#ret, thresh_gray = cv.threshold(gray, 150, 255, cv.THRESH_BINARY)
+
+#Inverted Thresholding
+#ret, thresh_gray = cv.threshold(gray, 150, 55, cv.THRESH_BINARY_INV)
+
+#Otsu's Method
 #ret, thresh_gray = cv.threshold(gray, 150, 55, cv.THRESH_BINARY+cv.THRESH_OTSU)
 
 #Adaptive Mean Thresholding
@@ -16,15 +23,11 @@ gray = cv.cvtColor(rsz_img, cv.COLOR_BGR2GRAY)
            #cv.THRESH_BINARY, 11, 2) 
 
 #Adaptive Gaussian Thresholding 
-thresh_gray = cv.adaptiveThreshold(gray, 100, cv.ADAPTIVE_THRESH_GAUSSIAN_C, \
-           cv.THRESH_BINARY, 11, 2)
+#thresh_gray = cv.adaptiveThreshold(gray, 220, cv.ADAPTIVE_THRESH_GAUSSIAN_C, \
+           #cv.THRESH_BINARY, 11, 2)
 
-
-#Otsu's Method
-#ret, thresh_gray = cv.threshold(gray, 150, 55, cv.THRESH_BINARY+cv.THRESH_OTSU)
-
-cv.imwrite(f"{path}/Move1.png", thresh_gray)
-cv.imshow("Thresholded", thresh_gray)
+print(rsz_img.shape)
+cv.imshow("Thresholded", result)
 cv.waitKey(0)
 
 cv.destroyAllWindows()
