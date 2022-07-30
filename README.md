@@ -20,7 +20,7 @@ Once all moves of a game have been compiled into a .pgn file, it can be uploaded
 
 Checkmate has very minimal requirements and needs very little instruction to run. This section will guide you through the process.
 
-Firstly, Checkmate requires Python on a user's system. To check if you have Python installed already, open the default terminal in your system and type "python --version" (Note that MacOS comes presinstalled with an older version of Python, which Checkmate has no issues running on). If it returns some version of Python, then it is installed on your system. Otherwise, go to python.org/downloads and follow the download instructions for the most recent version of Python, and for your specific operating system.
+Firstly, Checkmate requires Python on a user's system. To check if you have Python installed already, open the default terminal in your system and type "python --version" (Note that MacOS comes presinstalled with an older version of Python, which Checkmate has no issues running on). If it returns some version of Python, then it is installed on your system. Otherwise, go to https://python.org/downloads and follow the download instructions for the most recent version of Python, and for your specific operating system.
 
 Once you have Python installed, open your default terminal (For example, Command Prompt on Windows and Terminal on MacOS), and double check the version using the previously mentioned command. Once you have double checked, enter "pip install pip" to download the package manager for Python.
 
