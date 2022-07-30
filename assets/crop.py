@@ -31,7 +31,7 @@ def imageCrop(num):
 
     #Writing the output image to a folder
     cv.imwrite(f"{config.path}\\cutPhotos\\Move" + str(num) + ".png", img_final)
-    print("Image cropped")
+
 
     #cv.imwrite(f"{config.path}\\cutPhotos\\Move" + str(num) + ".png", result)
     #cv.imshow("Masked Move " + str(num), rsz_img)
