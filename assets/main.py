@@ -1,20 +1,7 @@
-# import cv2 as cv
-import numpy as np
 from PIL import Image
 import pyautogui
-from time import sleep
 import config
 import requests
-
-
-# print("Hello Python")
-
-# print(f"OpenCV {cv.__version__}")
-
-# print(f"Numpy {np.__version__}")
-
-
-
 
 
 def differenceFinder(oldSquares, newSquares):

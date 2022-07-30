@@ -1,0 +1,7 @@
+numpy
+opencv-python
+pillow
+PyAutoGUI
+python-lichess 
+requests
+time
