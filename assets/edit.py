@@ -3,7 +3,7 @@ import numpy as np
 import config
 from time import sleep
 
-def imageCrop(num):
+def imgEdit(num):
     #Initializing the image
     img = cv.imread(f"{config.path}\\newChessPNGs\\realChessPNGs (coloured)\\Move" + str(num) + ".png")
     #Resizing the image for managability 
@@ -28,17 +28,19 @@ def imageCrop(num):
     #Finding the bottom right corner of the contour
     (bottomx, bottomy) = (np.max(x), np.max(y))
     #Cropping the area enclosed by the corners
-    img_final = result[topx:bottomx+1, topy:bottomy+1]
+    img = result[topx:bottomx+1, topy:bottomy+1]
+    #Rotating the image to adjust to the default setup
+    img_final = cv.rotate(img, cv.ROTATE_180)
 
     #Writing the output image to a folder
     cv.imwrite(f"{config.path}\\cutPhotos\\Move" + str(num) + ".png", img_final)
 
-    #cv.imwrite(f"{config.path}\\cutPhotos\\Move" + str(num) + ".png", result)
-    #cv.imshow("Masked Move " + str(num), rsz_img)
+    #cv.imshow("Edited image" + str(num), img_final)
     #cv.waitKey(0)
     #cv.destroyAllWindows()
     
-
+for i in range(34):
+    imgEdit(i)
 
 #Standard Thresholding
 #ret, thresh_gray = cv.threshold(gray, 150, 255, cv.THRESH_BINARY)
