@@ -1,21 +1,19 @@
 from PIL import Image
-
-
-path = "C:\\Users\\guhan\\Desktop\\chess"
+import config
 
 def pickImage(num, folder):
 	
 	imageName = "Move" + str(num) + ".png"
 
-	img  = Image.open(f"{path}\\{folder}\\{imageName}")
+	img  = Image.open(f"{config.path}\\{folder}\\{imageName}")
 	
 	return img
 
 def SubtractImage(num):
 
-	img1 = pickImage(num,  "autoscreenshot (grayscaled)")
-	img2 = pickImage(num+1,"autoscreenshot (grayscaled)")
-	img  = pickImage(num+1, "autoscreenshot (grayscaled)")
+	img1 = pickImage(num,  "cutPhotos (grayscaled)")
+	img2 = pickImage(num+1,"cutPhotos (grayscaled)")
+	img  = pickImage(num+1, "cutPhotos (grayscaled)")
 
 	pix = img.load()
 	pix1 = img1.load()
@@ -39,7 +37,7 @@ def SubtractImage(num):
 
 	imageName = "Move" + str(num+1) + ".png"
 
-	img.save(f"{path}\\autoscreenshot\\{imageName}")
+	img.save(f"{config.path}\\cutPhotos (subtracted)\\{imageName}")
 
 	print("Image Done")
 

@@ -1,12 +1,12 @@
 from PIL import Image
+import config
 
-path = "C:\\Users\\guhan\\Desktop\\chess"
 
 def pickImage(num):
 	
 	imageName = "Move" + str(num) + ".png"
 
-	img  = Image.open(f"{path}\\realChessPNGs (coloured)\\{imageName}")
+	img  = Image.open(f"{config.path}\cutPhotos\\{imageName}")
 	
 	return img
 
@@ -29,7 +29,7 @@ def convertIntoGrayscale(img, num):
 
 	imageName = "Move" + str(num) + ".png"
 
-	img.save(f"{path}\\realChessPNGs (grayscaled)\\{imageName}")
+	img.save(f"{config.path}\\cutPhotos (grayscaled)\\{imageName}")
 
 	print("Image Done")
 
