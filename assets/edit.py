@@ -5,12 +5,12 @@ from time import sleep
 
 def imgEdit(num):
     #Initializing the image
-    img = cv.imread(f"{config.path}\\newChessPNGs\\realChessPNGs (coloured)\\Move" + str(num) + ".png")
+    img = cv.imread(f"{config.path}\\PNGs\\realChessPNGs (coloured)\\Move" + str(num) + ".png")
     #Resizing the image for managability 
     rsz_img = cv.resize(img, None, fx=0.20, fy=0.20)
 
     #Creating an empty array for the mask based off the image dimmensions
-    mask = np.zeros(rsz_img.shape[:2], datatype = "uint8")
+    mask = np.zeros(rsz_img.shape[:2], dtype = "uint8")
     #Creating the image mask around the chess board
     mask = cv.rectangle(mask, (115,225), (500, 600), (255,255,255), -1)
 
@@ -33,7 +33,7 @@ def imgEdit(num):
     img_final = cv.rotate(img, cv.ROTATE_180)
 
     #Writing the output image to a folder
-    cv.imwrite(f"{config.path}\\cutPhotos\\Move" + str(num) + ".png", img_final)
+    cv.imwrite(f"{config.path}\\PNGs\\realChessPNGs (coloured)\\Move" + str(num) + ".png", img_final)
 
     #cv.imshow("Edited image" + str(num), img_final)
     #cv.waitKey(0)
@@ -51,8 +51,7 @@ def imgThreshold(num):
     cv.destroyAllWindows() """
     cv.imwrite(f"{config.path}\\cutPhotos (grayscaled)\\Move" + str(num) + ".png", gray)
 
-for i in range(34):
-    imgThreshold(i)
+imgEdit(31)
 
 #Inverted Thresholding
 #ret, thresh_gray = cv.threshold(gray, 150, 55, cv.THRESH_BINARY_INV)
