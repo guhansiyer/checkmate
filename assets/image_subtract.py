@@ -11,9 +11,9 @@ def pickImage(num, folder):
 
 def SubtractImage(num):
 
-	img1 = pickImage(num,  "cutPhotos (grayscaled)")
-	img2 = pickImage(num+1,"cutPhotos (grayscaled)")
-	img  = pickImage(num+1, "cutPhotos (grayscaled)")
+	img1 = pickImage(num, "cutPhotos (grayscaled)")
+	img2 = pickImage(num+1, "cutPhotos (grayscaled)")
+	img  = pickImage(num+1," cutPhotos (grayscaled)")
 
 	pix = img.load()
 	pix1 = img1.load()
@@ -37,10 +37,10 @@ def SubtractImage(num):
 
 	imageName = "Move" + str(num+1) + ".png"
 
-	img.save(f"{config.path}\\cutPhotos (subtracted)\\{imageName}")
+	img.save(f"{config.path}\\PNGS\\cutPhotos (subtracted)\\{imageName}")
 
 	print("Image Done")
 
 for i in range(36):
-
+    
 	SubtractImage(i)
