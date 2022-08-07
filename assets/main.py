@@ -173,7 +173,7 @@ def pickImage(num):
 	
 	imageName = "Move" + str(num) + ".png"
 
-	img  = Image.open(f"{config.path}\\ChessPNGs\\{imageName}")
+	img  = Image.open(f"{config.path}\\PNGs\\originalPhotos\\{imageName}")
 	
 	return img
 
@@ -244,7 +244,7 @@ def takeScreenshot(num):
 	imageName = "Move" + str(num) + ".png"
 
 	myScreenshot = pyautogui.screenshot()
-	myScreenshot.save(f"{config.path}\\ChessPNGs\\{imageName}")
+	myScreenshot.save(f"{config.path}\\PNGs\\originalPhotos\\{imageName}")
 
 def startPositions():
 	# setting up the original positions
@@ -335,56 +335,58 @@ def startPositions():
 
 	return squares
 
+def main():
+	squaresOld = startPositions()
 
-squaresOld = startPositions()
+	# sleep(5000)
 
-# sleep(5000)
+	moves = []
 
-moves = []
+	for x in range(37):
 
-for x in range(37):
+		# takeScreenshot(x)
+		img = pickImage(x+1)
+		squaresNew = getColours(img)
 
-	# takeScreenshot(x)
-	img = pickImage(x+1)
-	squaresNew = getColours(img)
+		difference = differenceFinder(squaresOld, squaresNew)
 
-	difference = differenceFinder(squaresOld, squaresNew)
+		squaresOld = difference[0]
 
-	squaresOld = difference[0]
+		try:
+			move = difference[1]
+			moves.append(move)
+		except:
+			pass
 
-	try:
-		move = difference[1]
-		moves.append(move)
-	except:
-		pass
+	# for i in range(len(moves)):
 
-# for i in range(len(moves)):
+	# 	print(f"{i+1}. {moves[i]} ")
 
-# 	print(f"{i+1}. {moves[i]} ")
+	with open(f"{config.path}\\Chess Moves.pgn", "w") as fileChess:
 
-with open(f"{config.path}\\Chess Moves.pgn", "w") as fileChess:
+		for i in range(len(moves)):
 
-	for i in range(len(moves)):
+			fileChess.write(f"{i+1}. {moves[i]} ")
 
-		fileChess.write(f"{i+1}. {moves[i]} ")
+	with open(f"{config.path}\\Chess Moves.txt", "w") as fileChess:
 
-with open(f"{config.path}\\Chess Moves.txt", "w") as fileChess:
+		for i in range(len(moves)):
 
-	for i in range(len(moves)):
+			fileChess.write(f"{i+1}. {moves[i]} ")
 
-		fileChess.write(f"{i+1}. {moves[i]} ")
+	chessmoves = open(f"{config.path}\\Chess Moves.pgn", "r")
 
-chessmoves = open(f"{config.path}\\Chess Moves.pgn", "r")
+	data = chessmoves.read()
 
-data = chessmoves.read()
+	chessmoves.close()
 
-chessmoves.close()
+	response = requests.post(
+		"https://lichess.org/api/import",  
+		data = {"pgn": data}
+	)
 
-response = requests.post(
-    "https://lichess.org/api/import",  
-    data = {"pgn": data}
-)
+	print(response.json()["url"])
 
-print(response.json()["url"])
-
+if __name__ == '__main__':
+	main()
 
