@@ -1,3 +1,4 @@
+from shutil import move
 from PIL import Image
 import pyautogui
 import config
@@ -159,7 +160,7 @@ def getHex (x):
 	return xHex
 
 
-def getColour(r, g, b):
+def getHexValue(r, g, b):
 
 	rHex = getHex(r)
 	gHex = getHex(g)
@@ -173,7 +174,7 @@ def pickImage(num):
 	
 	imageName = "Move" + str(num) + ".png"
 
-	img  = Image.open(f"{config.path}\\PNGs\\originalPhotos\\{imageName}")
+	img  = Image.open(f"{config.path}\\PNGs\\cutPhotos\\{imageName}")
 	
 	return img
 
@@ -212,8 +213,9 @@ def getColours(img):
 				for i in range(xStep-1):			
 
 					RGBValue = pix[x,y]
+					print(getHexValue(RGBValue[0], RGBValue[1], RGBValue[2]))
 
-					hexValue = getColour(RGBValue[0], RGBValue[1], RGBValue[2])
+					hexValue = getHexValue(RGBValue[0], RGBValue[1], RGBValue[2])
 
 					if hexValue == "#565352":
 
@@ -244,7 +246,7 @@ def takeScreenshot(num):
 	imageName = "Move" + str(num) + ".png"
 
 	myScreenshot = pyautogui.screenshot()
-	myScreenshot.save(f"{config.path}\\PNGs\\originalPhotos\\{imageName}")
+	myScreenshot.save(f"{config.path}\\PNGs\\cutPhotos\\{imageName}")
 
 def startPositions():
 	# setting up the original positions
@@ -342,7 +344,7 @@ def main():
 
 	moves = []
 
-	for x in range(37):
+	for x in range(1):
 
 		# takeScreenshot(x)
 		img = pickImage(x+1)
@@ -354,6 +356,7 @@ def main():
 
 		try:
 			move = difference[1]
+			print(move)
 			moves.append(move)
 		except:
 			pass
@@ -362,7 +365,7 @@ def main():
 
 	# 	print(f"{i+1}. {moves[i]} ")
 
-	with open(f"{config.path}\\Chess Moves.pgn", "w") as fileChess:
+""" 	with open(f"{config.path}\\Chess Moves.pgn", "w") as fileChess:
 
 		for i in range(len(moves)):
 
@@ -385,7 +388,7 @@ def main():
 		data = {"pgn": data}
 	)
 
-	print(response.json()["url"])
+	print(response.json()["url"]) """
 
 if __name__ == '__main__':
 	main()
