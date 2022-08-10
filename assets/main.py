@@ -1,4 +1,3 @@
-from shutil import move
 from PIL import Image
 import pyautogui
 import config
@@ -213,7 +212,6 @@ def getColours(img):
 				for i in range(xStep-1):			
 
 					RGBValue = pix[x,y]
-					print(getHexValue(RGBValue[0], RGBValue[1], RGBValue[2]))
 
 					hexValue = getHexValue(RGBValue[0], RGBValue[1], RGBValue[2])
 
