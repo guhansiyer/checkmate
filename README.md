@@ -8,9 +8,9 @@ While virtual chess has become increasingly prevalent, games on physical boards 
 
 # Scorekeeping
 
-Chess games are usually recorded in [Standard Algebraic Notation (SAN)](https://www.chess.com/article/view/chess-notation), the FIDE standard for recording moves in a game of chess. SAN identifies each square through a coordinate system, and each piece (except pawns) by a capital letter. An example of a move in SAN is Be5, which is read as "Bishop moves to square E5". There are also symbols for moves such as captures, denoted by an "x", check, denoted by a "+", checkmate, denoted by a "#", and other special cases such as en passant, castling and promotion.
+Chess games are usually recorded in [Standard Algebraic Notation (SAN)](https://www.chess.com/article/view/chess-notation), the generally recognized standard for recording moves in a game of chess. SAN identifies each square through a coordinate system, and each piece (excluding pawns) by a capital letter. An example of a move in SAN is Be5, which is read as "Bishop moves to square E5". There are also symbols for moves such as captures, denoted by an "x", check, denoted by a "+", checkmate, denoted by a "#", and other special cases such as en passant, castling and promotion.
 
-Lichess and most chess software are able to process game data through a  slight variation of standard algebraic notation called [Portable Game Notation (PGN)](https://www.chess.com/terms/chess-pgn), which is just SAN, combined with markup text. It is also based in it's own filetype; .pgn.
+Lichess and most chess software are able to process game data through a  slight variation of standard algebraic notation called [Portable Game Notation (PGN)](https://www.chess.com/terms/chess-pgn), which is just SAN, combined with markup text. It is also based in it's own filetype; .pgn. For easy integration with Lichess, Checkmate records moves in the SAN standard and adds the necessary markup to a .pgn file once all the moves in a game have been read.
 
 # Computer analysis through Lichess
 
@@ -37,3 +37,5 @@ For the first method, open your default terminal and type "cd Desktop" so that t
 For the second method, click "Code" on the GitHub repository, then click "Download as ZIP" and pick an easy to reach location to reach location for the ZIP file. Once downloaded, drag the "checkmate" folder out of it and into the same location as the ZIP file.
 
 Now with the repository cloned, we are nearly finished with the setup. Open your default terminal run the command "pip install -r import.txt" to install the necessary libraries for Checkmate.  
+
+(I'll eventually elaborate on this but not yet: For optimal results, photos should be taken with the chessboard in the center of the image and with little to no natural lighting.)
