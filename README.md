@@ -26,16 +26,32 @@ Checkmate has very minimal requirements for use. All it requires from the user i
 
 The setup for Checkmate is also quite simple, and we have done our best to provide easy to follow instructions for this process.
 
-Firstly, Checkmate requires Python on a user's system. To check if you have Python installed already, open the default terminal (for example, Command Prompt on Windows and Terminal on MacOS) on your system and type "python --version". If it returns some version of Python, then it is installed on your system. Otherwise, go to https://python.org/downloads and follow the download instructions for the most recent version of Python, and for your specific operating system.
+Firstly, Checkmate requires Python on a user's system. To check if you have Python installed already, open the default terminal (for example, Command Prompt on Windows and Terminal on MacOS) on your system and type 
+```
+python --version
+```
+If it returns some version of Python, then it is installed on your system. Otherwise, go to https://python.org/downloads and follow the download instructions for the most recent version of Python, and for your specific operating system.
 
-Once you have Python installed, open your default terminal, and double check the version using the previously mentioned command. Once you have double checked, enter "pip install pip" to download the package manager for Python.
+Once you have Python installed, open your default terminal, and double check the version using the previously mentioned command. Once you have double checked, enter
+```
+pip install pip
+```
+to download the package manager for Python.
 
 Now that we have Python fully set up, we can clone the repository for Checkmate. There are two ways to do this: through Git and the terminal, or by downloading the repository in a ZIP file. 
 
-For the first method, open your default terminal and type "cd Desktop" so that the repository can be downloaded to that location. Double check that this is the Desktop folder by typing "ls" on MacOS/Linux or "dir" on Windows, which will show you all the files in the folder. If they match up with your Desktop folder, then you are in the right environment. Copy the link to the repository by clicking the "Code" button, and copy the link for HTTPS. Then return to the terminal, making sure you are still in the Desktop folder, and type the command "git clone https://github.com/guuuuie/checkmate.git". Follow all instructions that may be required. Check if the repository has been successfully cloned afterwards by typing "cd checkmate", then either "ls" or "dir" to check if the files line up with the GitHub repository. 
+For the first method, open your default terminal and type "cd Desktop" so that the repository can be downloaded to that location. Double check that this is the Desktop folder by typing "ls" on MacOS/Linux or "dir" on Windows, which will show you all the files in the folder. If they match up with your Desktop folder, then you are in the right environment. Copy the link to the repository by clicking the "Code" button, and copy the link for HTTPS. Then return to the terminal, making sure you are still in the Desktop folder, and type the command
+```
+git clone https://github.com/guuuuie/checkmate.git
+```
+Follow all instructions that may be required. Check if the repository has been successfully cloned afterwards by typing "cd checkmate", then either "ls" or "dir" to check if the files line up with the GitHub repository. 
 
 For the second method, click "Code" on the GitHub repository, then click "Download as ZIP" and pick an easy to reach location to reach location for the ZIP file. Once downloaded, drag the "checkmate" folder out of it and into the same location as the ZIP file.
 
-Now with the repository cloned, we are nearly finished with the setup. Open your default terminal run the command "pip install -r import.txt" to install the necessary libraries for Checkmate.  
+Now with the repository cloned, we are nearly finished with the setup. Open your default terminal run the command
+```
+pip install -r import.txt
+```
+to install the necessary libraries for Checkmate.  
 
 (I'll eventually elaborate on this but not yet: For optimal results, photos should be taken with the chessboard in the center of the image and with little to no natural lighting.)
