@@ -2,7 +2,7 @@
 
 ## Introduction
 
-checkmate is an automated scorekeeper that provides the benefits of internet chess servers for over-the-board games of chess. Using a compatible device's integrated camera, checkmate recognizes piece movement and will denote a move in proper notation to a text file upon detection. When a game ends, checkmate uploads the aforementioned text file to the popular server Lichess for analysis through the Stockfish engine. 
+checkmate is an automated scorekeeper that provides the benefits of internet chess servers for over-the-board games of chess. Using a compatible device's integrated camera, checkmate recognizes piece movement and denotes moves in proper notation to a text file upon detection. When a game ends, checkmate uploads the aforementioned text file to the popular server Lichess for analysis through the Stockfish engine. 
 
 ## Installation
 

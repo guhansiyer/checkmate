@@ -1,6 +1,8 @@
 import cv2 as cv
 import config
 
+# new basis
+
 def Edge(num):
     # Read the original image
     img = cv.imread(f'{config.path}\\PNGs\\cutPhotos\\Move' + str(num) + '.png') 
